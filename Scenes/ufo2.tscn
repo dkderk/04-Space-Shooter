@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/ufo.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/ufo.gd" type="Script" id=2]
+
+[node name="ufo2" type="KinematicBody2D"]
+position = Vector2( 184, -112 )
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 6, -29.7, 14.9, -20, 25.2, -20, 27.2, -16, 38, -16, 38, -13.6, 39.1, -12, 50, -12, 50, -9.4, 52.5, 2, 49.4, 2, 40, 3.7, 40, 4.8, 36.8, 8, 28, 8, 28, 8.8, 24.8, 12, 12, 12, 12, 12.8, 8.8, 16, -13.2, 16, -15.2, 12, -29.2, 12, -31.2, 8, -41.2, 8, -43.2, 4, -54, 4, -54, -12, -43.2, -12, -41.2, -16, -32, -16, -32, -16.8, -28.8, -20, -20, -20, -20, -20.9, -10, -29.9, -10, -32, 6, -32 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
